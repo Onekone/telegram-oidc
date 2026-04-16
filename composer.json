@@ -1,0 +1,36 @@
+{
+    "name": "onekone/telegram-oidc",
+    "description": "Telegram OpenID Connect provider for Laravel Socialite",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+          "name": "JPG Dev",
+          "homepage": "https://jpgdev.com"
+        },
+        {
+          "name": "Kevin Woblick",
+          "email": "contact@woblick.dev",
+          "homepage": "https://woblick.dev",
+          "role": "Developer"
+        },
+        {
+            "name": "onekone",
+            "email": "alexs0929@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+      "php": "^8.1",
+      "ext-json": "*",
+      "socialiteproviders/manager": "^4.0",
+      "illuminate/http": "^9.0 | ^10.0 | ^11.0 | ^12.0 | ^13.0",
+      "illuminate/support": "^9.0 | ^10.0 | ^11.0 | ^12.0 | ^13.0",
+      "firebase/php-jwt": "^6.4|^7.0"
+    },
+    "autoload": {
+      "psr-4": {
+        "Onekone\\TelegramSocialite": "."
+      }
+    }
+}
