@@ -12,6 +12,16 @@ composer require onekone/telegram-oidc
 
 Please see the [Base Installation Guide](https://socialiteproviders.com/usage/), then follow the provider specific instructions below.
 
+### Preparation
+
+[Process is actually surprisingly involved](https://github.com/vcode-sh/better-auth-telegram?tab=readme-ov-file#prerequisites), and skipping steps might result in errors, malfunctions and silent failures
+
+* To set up integration with Telegram, first you must have a Telegram bot, created through [@BotFather](https://t.me/BotFather)
+* Then, you must open bot settings from BotFather's **mini app** - chat interface won't do, and navigate to **Bot Settings** > **Web Login**
+* Select **OpenID Connect Login**. If it's not there, add Web Login URL, and then **remove it**. This is irreversible, and if you used your bot to authenticate users using previous flow, it will now permanently **break**  
+* Add two **Allowed Url**s, a **Trusted Origin** (e.g. `https://example.com`) and a **Redirect URI** (e.g. `https://example.com/oauth/callback`). Without correct **Redirect URI**, Telegram will return you to whatever callback URI you supplied rather, but with `#tgAuthResult` in URI, than `code` query parameter, which won't be seen by your server
+* After enabling OICD, use listed Client ID and Client Secret as credentials. The secret is not the same as bot secret, and attempting to use it will return an error
+
 ### Add configuration to `config/services.php`
 
 ```php
